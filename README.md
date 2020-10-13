@@ -15,21 +15,32 @@ start_album = The album you would suggest to someone if they had not heard of th
 **Create a new Artist ranking**
 Here is an example using the band The Cure
 
-```
-$ curl -s -X POST -H 'Content-Type: application/json' "APPLICATION_URL/new_ranking" -d '{"artist_name": "The Cure","favorite_album": "Wish","best_album": "Disintegration", "start_album": "Seventeen Seconds"}'
+```shell
+$ curl -s -X POST -H 'Content-Type: application/json' "APPLICATION_URL/new_ranking" \ 
+-d '{"artist_name": "The Cure","favorite_album": "Wish","best_album": "Disintegration", "start_album": "Seventeen Seconds"}'
 ```
 
 **Retrieve an Artists rankings**
 
-```
+```shell
 $ curl -s -X GET -H 'Content-Type: application/json' "APPLICATION_URL/get_rankings"
 ```
 
 ## Test locally
 You can test this locally before deploying to Code Engine. 
-```
+
+```shell
 $ git clone https://github.com/cloud-design-dev/code-engine-simple-api.git
 $ cd code-engine-simple-api
 $ npm install . 
 $ npm start
+```
+
+## Deploying to Code Engine
+
+#### Create a new Code Engine project
+Due to the service being an experimental release you can only have one project per region. If you already have a project deployed, skip down to [creating the application]
+```shell
+$ ibmcloud ce project -n best-fav-start --target 
+
 ```
